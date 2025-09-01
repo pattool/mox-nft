@@ -1,5 +1,5 @@
 import base64
-from contracts import mood_nft
+from contracts import mood_nft_contract
 
 
 def svg_to_base64_uri(svg):
@@ -22,13 +22,12 @@ def deploy_mood():
         sad_svg_uri = svg_to_base64_uri(sad_svg)
         #print(sad_svg_uri)
 
-    mood_contract = mood_nft.deploy(happy_svg_uri, sad_svg_uri)
+    mood_contract = mood_nft_contract.deploy(happy_svg_uri, sad_svg_uri)
     mood_contract.mint_nft()
-    mood_contract.flip_mood(0)
+    #mood_contract.flip_mood(0)
     print(f"TokenUri: {mood_contract.tokenURI(0)}")
-    
+    return mood_contract
+
+
 def moccasin_main():
-    deploy_mood()
-
-
-
+    return deploy_mood()

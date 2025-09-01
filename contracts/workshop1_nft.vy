@@ -6,6 +6,7 @@
 """
 @license MIT
 @title St. Bernard NFT
+@author Patrick Pekel
 @notice My second NFT
 """
 

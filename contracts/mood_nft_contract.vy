@@ -17,6 +17,7 @@ from snekmate.auth import ownable as ow
 from snekmate.tokens import erc721
 from snekmate.utils import base64
 
+
 # ------------------------------------------------------------------
 #                     IMPORT STORAGE VARIABLES
 # ------------------------------------------------------------------
@@ -70,7 +71,6 @@ SAD_SVG_URI: immutable(String[800])
 NAME: constant(String[25]) = "Mood NFT"
 SYMBOL: constant(String[5]) = "MNFT"
 BASE_URI: public(constant(String[34])) = "" 
-#BASE_URI: public(constant(String[7])) ="ipfs://""
 EIP_712_VERSION: constant(String[1]) = "1"
 FINAL_STRING_SIZE: constant(uint256) = (4 * base64._DATA_OUTPUT_BOUND) + 80
 JSON_BASE_URI: constant(String[29]) =  "data:application/json;base64,"
@@ -153,7 +153,7 @@ def tokenURI(token_id: uint256) -> String[FINAL_STRING_SIZE]:
 
     json_bytes: Bytes[1024] = convert(json_string, Bytes[1024])
     encoded_chunks: DynArray[
-        String[4], base64._DATA_OUTPUT_BOUND
+        String[4], base64._DATA_OUTPUT_BOUND # ->base64.vy file
     ] = base64._encode(json_bytes, True)
 
     result: String[FINAL_STRING_SIZE] = JSON_BASE_URI

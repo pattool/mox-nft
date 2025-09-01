@@ -33,4 +33,11 @@ chain_id = 300
 is_zksync = true
 prompt_live = true
 
+
+[networks.our_fake_chain_free] # pw like anvil
+url = "$TENDERLY_RPC_URL"
+save_to_db = false
+prompt_live = false
+default_account_name = "tenderly1"
+
 # You can view all configuration options at https://cyfrin.github.io/moccasin/all_moccasin_toml_parameters.html

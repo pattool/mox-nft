@@ -28,3 +28,4 @@ def deploy_basic_nft() -> VyperContract:
 
 def moccasin_main():
     return deploy_basic_nft()
+    
