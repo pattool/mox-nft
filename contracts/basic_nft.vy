@@ -35,8 +35,8 @@ exports: erc721.__interface__
 # ------------------------------------------------------------------
 NAME: constant(String[25]) = "Puppy NFT"
 SYMBOL: constant(String[5]) = "PNFT"
-BASE_URI: public(constant(String[34])) = "https://gateway.pinata.cloud/ipfs/" 
-#BASE_URI: public(constant(String[7])) ="ipfs://"
+#BASE_URI: public(constant(String[34])) = "https://gateway.pinata.cloud/ipfs/" 
+BASE_URI: public(constant(String[7])) ="ipfs://"
 EIP_712_VERSION: constant(String[1]) = "1"
 
 
@@ -54,6 +54,8 @@ def __init__():
 # ------------------------------------------------------------------
 @external
 def mint(uri: String[432]):
+
+    #assert erc721.is_minter[msg.sender], "erc721: access is denied"
 
     token_id: uint256 = erc721._counter
     erc721._counter = token_id + 1

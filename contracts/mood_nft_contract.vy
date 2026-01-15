@@ -160,7 +160,7 @@ def tokenURI(token_id: uint256) -> String[FINAL_STRING_SIZE]:
 
     counter: uint256 = JSON_BASE_URI_SIZE
     for encoded_chunk: String[4] in encoded_chunks:
-        result = self.set_indice_truncated(result, counter, encoded_chunk)
+        result = self._set_indice_truncated(result, counter, encoded_chunk)
         counter += 4
     return result
 
@@ -176,7 +176,7 @@ def svg_to_uri(svg: String[1024]) -> String[FINAL_STRING_SIZE]:
 
     counter: uint256 = IMG_BASE_URI_SIZE
     for encoded_chunk: String[4] in encoded_chunks:
-        result = self.set_indice_truncated(result, counter, encoded_chunk)
+        result = self._set_indice_truncated(result, counter, encoded_chunk)
         counter += 4
     return result
 
@@ -186,7 +186,7 @@ def svg_to_uri(svg: String[1024]) -> String[FINAL_STRING_SIZE]:
 # ------------------------------------------------------------------
 @internal
 @pure
-def set_indice_truncated(
+def _set_indice_truncated(
     result: String[FINAL_STRING_SIZE], index: uint256, chunk_to_set: String[4]
 ) -> String[FINAL_STRING_SIZE]:
     """

@@ -12,7 +12,10 @@ Fourth: Use metadata hash as NFT tokenURI
 
 """
 
+# Point to your Meta Data -> st_bernard.json file
 ST_BERNARD_URI= "QmSpWiq9VqdzdGJ382QZxzyrwQeNehmyQzf17sdcFSUSYy"
+
+#ST_BERNARD_URI_Centralized = ""
 
 def deploy_basic_nft() -> VyperContract:
     contract_nft = workshop1_nft.deploy()
@@ -20,7 +23,6 @@ def deploy_basic_nft() -> VyperContract:
     print(f"Deployed basic NFT to {contract_nft.address}")
     
     contract_nft.mint(ST_BERNARD_URI)
-    #contract.mint(BERNARD_URI)
     print(f"Minted Pug NFT with URI {contract_nft.tokenURI(0)}")
     print()
     return contract_nft

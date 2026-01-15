@@ -31,8 +31,8 @@ def _get_data_to_call_transfer(
     some_address: address, amount: uint256
 ) -> Bytes[100]:
     return abi_encode(
-        self.some_address,
-        self.amount,
+        some_address,
+        amount,
         method_id=method_id("transfer(address,uint256)", output_type=bytes4),
     )
 

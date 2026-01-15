@@ -12,8 +12,9 @@ Third: Upload JSON to IPFS → get metadata hash
 Fourth: Use metadata hash as NFT tokenURI
 
 """
-#PUG_URI=  "QmW16U98JrY9HBY36rQtUuUtDnm6LdEeNdAAggmrx3thMa" 
-PUG_URI_Centralized = "QmanoFs6a4GHRtTW32w1fFJSv61TFT8Vk9qKqFF1mcdjMK"
+# Point to your Meta Data -> pug.json file
+PUG_URI=  "QmW16U98JrY9HBY36rQtUuUtDnm6LdEeNdAAggmrx3thMa"
+#PUG_URI_Centralized = "QmanoFs6a4GHRtTW32w1fFJSv61TFT8Vk9qKqFF1mcdjMK"
                        
 
 def deploy_basic_nft() -> VyperContract:
@@ -21,8 +22,8 @@ def deploy_basic_nft() -> VyperContract:
     print()
     print(f"Deployed basic NFT to {contract.address}")
     
+    contract.mint(PUG_URI)
     #contract.mint(PUG_URI_Centralized)
-    contract.mint(PUG_URI_Centralized)
     print(f"Minted Pug NFT with URI {contract.tokenURI(0)}")
     print()
     return contract
