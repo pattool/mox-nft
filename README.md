@@ -4,7 +4,7 @@
 
 ## Build 2 NFTs
 
-1. Basic NFT + workshop1_nft
+1. 4 Basic NFTs: Basic NFT - Workshop1 NFT - Shiba NFT - Picasso NFT
 2. Dynamic NFT, one where the mood can be changed, and the image be changed.
 
 ## Installation

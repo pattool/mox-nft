@@ -1,0 +1,11 @@
+{
+    "name": "PIC",
+    "description": "An Picasso copy painting!",
+    "image": "ipfs://QmeMJohFYP9DrKLtBwxYPWJJSkwJ59XBP5PuhVxPuQVZzp",
+    "attributes": [
+        {
+            "trait_type": "perception",
+            "value": 100            
+        }        
+    ]    
+}
