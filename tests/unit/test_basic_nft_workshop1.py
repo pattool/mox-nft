@@ -41,7 +41,8 @@ def test_base_uri(fresh_nft_contract):
         """Test that the base URI is set correctly."""
         contract = fresh_nft_contract
         
-        expected_base_uri = "https://gateway.pinata.cloud/ipfs/"
+        #expected_base_uri = "https://gateway.pinata.cloud/ipfs/"
+        expected_base_uri = "ipfs://"
         assert contract.get_base_uri() == expected_base_uri
         
         print(f"✅ Base URI: {contract.get_base_uri()}")
@@ -78,6 +79,7 @@ def test_moccasin_main_function():
         
         # Verify the token URI
         expected_uri = f"https://gateway.pinata.cloud/ipfs/{ST_BERNARD_URI}"
+        expected_uri = f"ipfs://{ST_BERNARD_URI}"
         assert contract.tokenURI(0) == expected_uri
         
         print(f"✅ moccasin_main() executed successfully")
