@@ -78,7 +78,7 @@ def test_moccasin_main_function():
         assert contract.ownerOf(0) == boa.env.eoa
         
         # Verify the token URI
-        expected_uri = f"https://gateway.pinata.cloud/ipfs/{ST_BERNARD_URI}"
+        #expected_uri = f"https://gateway.pinata.cloud/ipfs/{ST_BERNARD_URI}"
         expected_uri = f"ipfs://{ST_BERNARD_URI}"
         assert contract.tokenURI(0) == expected_uri
         
