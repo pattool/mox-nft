@@ -45,6 +45,9 @@ EIP_712_VERSION: constant(String[1]) = "1"
 # ------------------------------------------------------------------
 @deploy
 def __init__():
+    """
+    @notice Initialize the NFT contract with ownable and ERC721 modules.
+    """
     ow.__init__()
     erc721.__init__(NAME, SYMBOL, BASE_URI, NAME, EIP_712_VERSION)
 
@@ -54,7 +57,10 @@ def __init__():
 # ------------------------------------------------------------------
 @external
 def mint(uri: String[432]):
-
+    """
+    @notice Mint a new NFT to the caller with a given URI.
+    @param uri The token URI (IPFS link) for the NFT metadata.
+    """
     #assert erc721.is_minter[msg.sender], "erc721: access is denied"
 
     token_id: uint256 = erc721._counter
@@ -68,13 +74,9 @@ def mint(uri: String[432]):
 @external
 @view
 def get_base_uri() -> String[34]:
+    """
+    @notice Returns the base URI for all tokens.
+    @return The base URI string.
+    """
     return BASE_URI
-
-
-
-
-
-
-
-
 

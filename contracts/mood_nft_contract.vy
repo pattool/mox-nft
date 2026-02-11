@@ -98,6 +98,11 @@ flag Mood:
 # ------------------------------------------------------------------
 @deploy
 def __init__(happy_svg_uri_: String[800], sad_svg_uri_: String[800]):
+    """
+    @notice Initialize the dynamic NFT contract with happy and sad SVG URIs.
+    @param happy_svg_uri_ The URI for the happy mood SVG image.
+    @param sad_svg_uri_ The URI for the sad mood SVG image.
+    """
     ow.__init__()
     erc721.__init__(NAME, SYMBOL, BASE_URI, NAME, EIP_712_VERSION)
     HAPPY_SVG_URI = happy_svg_uri_
@@ -134,6 +139,12 @@ def flip_mood(token_id: uint256):
 @external
 @view
 def tokenURI(token_id: uint256) -> String[FINAL_STRING_SIZE]:
+    """
+    @notice Returns the token URI containing on-chain JSON metadata with the mood image.
+    @dev Encodes JSON metadata to base64 and returns it as a data URI.
+    @param token_id The ID of the token.
+    @return Base64 encoded JSON metadata string containing the NFT image and attributes.
+    """
 
     # Select the appropriate image URI based on state
     image_uri: String[800] = HAPPY_SVG_URI
@@ -168,6 +179,12 @@ def tokenURI(token_id: uint256) -> String[FINAL_STRING_SIZE]:
 @external
 @pure
 def svg_to_uri(svg: String[1024]) -> String[FINAL_STRING_SIZE]:
+    """
+    @notice Convert an SVG string to a base64 encoded data URI.
+    @dev Useful for testing SVG encoding off-chain.
+    @param svg The raw SVG string to encode.
+    @return Base64 encoded SVG data URI string.
+    """
     svg_bytes: Bytes[1024] = convert(svg, Bytes[1024])
     encoded_chunks: DynArray[
         String[4], base64._DATA_OUTPUT_BOUND
@@ -190,36 +207,14 @@ def _set_indice_truncated(
     result: String[FINAL_STRING_SIZE], index: uint256, chunk_to_set: String[4]
 ) -> String[FINAL_STRING_SIZE]:
     """
-    We set the index of a string, while truncating all values after the index
+    @notice Set a chunk of characters at a given index, truncating everything after it.
+    @param result The current string to modify.
+    @param index The position in the string to start writing.
+    @param chunk_to_set The 4-character chunk to write at the index.
+    @return The modified string with the chunk set at the given index.
     """
     buffer: String[FINAL_STRING_SIZE * 2] = concat(
         slice(result, 0, index), chunk_to_set
     )
     return abi_decode(abi_encode(buffer), (String[FINAL_STRING_SIZE]))
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
